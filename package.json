@@ -1,0 +1,47 @@
+{
+  "name": "recipes-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "yarn dbcreate && yarn migrate && yarn seed ",
+    "dbcreate": "node_modules/.bin/sequelize db:create --config ./server/config/config.json",
+    "migrate": "node_modules/.bin/sequelize db:migrate --config ./server/config/config.json --seeders-path ./server/seeders --migrations-path ./server/migrations --models-path ./server/--migrations-path ./server/migrations",
+    "unmigrate": "node_modules/.bin/sequelize db:migrate:undo:all --config ./server/config/config.json --seeders-path ./server/seeders --migrations-path ./server/migrations --models-path ./server/--migrations-path ./server/migrations",
+    "seed": "node_modules/.bin/sequelize db:seed:all --config ./server/config/config.json --seeders-path ./server/seeders --migrations-path ./server/migrations --models-path ./server/--migrations-path ./server/migrations",
+    "unseed": "node_modules/.bin/sequelize db:seed:undo:all --config ./server/config/config.json --seeders-path ./server/seeders --migrations-path ./server/migrations --models-path ./server/--migrations-path ./server/migrations",
+    "start": "nodemon --exec babel-node server/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^2.1.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "cors": "latest",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.4.2",
+    "graphql-tools": "^4.0.3",
+    "moment": "^2.24.0",
+    "pg": "^7.4.3",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "5.4.0",
+    "standard": "^13.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "eslint": "^6.1.0",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "nodemon": "^1.19.1"
+  }
+}
